@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="@dimen/space_30px"
+    android:background="#8000"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textSize="@dimen/space_40px"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="@dimen/space_30px"
+        android:layout_marginLeft="@dimen/space_30px"
+        android:text="生活建议"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/comfort_text"
+        android:layout_margin="@dimen/space_30px"
+        android:textColor="@color/colorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/car_wash_text"
+        android:layout_margin="@dimen/space_30px"
+        android:textColor="@color/colorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/sport_text"
+        android:layout_margin="@dimen/space_30px"
+        android:textColor="@color/colorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_weather"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.rjq.coolweather.activity.WeatherActivity">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:id="@+id/bing_pic_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include layout="@layout/title" />
+
+                <android.support.v4.widget.NestedScrollView
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:id="@+id/weather_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <include layout="@layout/now"/>
+
+                        <include layout="@layout/forecast"/>
+
+                        <include layout="@layout/aqi"/>
+
+                        <include layout="@layout/suggestion"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout
+                        >
+
+
+                </android.support.v4.widget.NestedScrollView>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <fragment
+
+            android:layout_gravity="start"
+            android:name="com.example.rjq.coolweather.fragment.ChooseAreaFragment"
+            android:id="@+id/choose_area_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+
+</com.zhy.autolayout.AutoFrameLayout>
