@@ -24,7 +24,6 @@ import com.example.rjq.coolweather.db.Province;
 import com.example.rjq.coolweather.util.HttpUtil;
 import com.example.rjq.coolweather.util.Utility;
 
-import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 
 import java.io.IOException;
