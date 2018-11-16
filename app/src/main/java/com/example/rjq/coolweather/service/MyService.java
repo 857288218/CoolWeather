@@ -33,21 +33,21 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         upDateWeather();
         updateBingPic();
-        AlarmManager manager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
         int anHour = 5 * 60 * 60 * 1000;
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
-        Intent i = new Intent(this,MyService.class);
-        PendingIntent pi = PendingIntent.getService(this,0,i,0);
+        Intent i = new Intent(this, MyService.class);
+        PendingIntent pi = PendingIntent.getService(this, 0, i, 0);
         manager.cancel(pi);
-        manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,triggerAtTime,pi);
+        manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtTime, pi);
         return super.onStartCommand(intent, flags, startId);
     }
 
 
-    private void upDateWeather(){
+    private void upDateWeather() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String weatherString = prefs.getString("weather",null);
-        if (weatherString != null){
+        String weatherString = prefs.getString("weather", null);
+        if (weatherString != null) {
             final Weather weather = Utility.handleWeatherResponse(weatherString);
             String weatherId = weather.basic.weatherId;
             String weatherUrl = "http://guolin.tech/api/weather?cityid=" + weatherId + "&key=7e122797472245f2adfb343842c8ae78";
@@ -62,9 +62,9 @@ public class MyService extends Service {
                 public void onResponse(Call call, Response response) throws IOException {
                     String responText = response.body().string();
                     Weather weather = Utility.handleWeatherResponse(responText);
-                    if (weather!=null && weather.status.equals("ok")){
+                    if (weather != null && weather.status.equals("ok")) {
                         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(MyService.this).edit();
-                        editor.putString("weather",responText);
+                        editor.putString("weather", responText);
                         editor.apply();
                     }
                 }
@@ -73,7 +73,7 @@ public class MyService extends Service {
     }
 
 
-    private void updateBingPic(){
+    private void updateBingPic() {
         String requestBingPic = "http://guolin.tech/api/bing_pic";
         HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
             @Override
@@ -85,7 +85,7 @@ public class MyService extends Service {
             public void onResponse(Call call, Response response) throws IOException {
                 String bingPic = response.body().string();
                 SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(MyService.this).edit();
-                editor.putString("bing_pic",bingPic);
+                editor.putString("bing_pic", bingPic);
                 editor.apply();
             }
         });

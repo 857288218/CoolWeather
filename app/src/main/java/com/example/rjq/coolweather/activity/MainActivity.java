@@ -2,10 +2,9 @@ package com.example.rjq.coolweather.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.rjq.coolweather.R;
 import com.example.rjq.coolweather.fragment.ChooseAreaFragment;
@@ -18,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getString("weather",null)!=null){
-            Intent intent = new Intent(this,WeatherActivity.class);
+        if (prefs.getString("weather", null) != null) {
+            Intent intent = new Intent(this, WeatherActivity.class);
             startActivity(intent);
             finish();
         }
@@ -28,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         ChooseAreaFragment chooseAreaFragment = (ChooseAreaFragment) getSupportFragmentManager().findFragmentById(R.id.choose_area_fragment);
-        if (chooseAreaFragment.currrentLevel == ChooseAreaFragment.LEVEL_PROVINCE){
+        if (chooseAreaFragment.currrentLevel == ChooseAreaFragment.LEVEL_PROVINCE) {
             super.onBackPressed();
-        }else{
+        } else {
             chooseAreaFragment.backLevel();
         }
     }
