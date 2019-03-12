@@ -18,19 +18,6 @@ android {
         }
     }
 
-    sourceSets {
-        main {
-
-            res.srcDirs =
-                    [
-                            'src/main/res',
-                            'src/main/res/layouts',
-                            'src/main/res/layouts/weather_info',
-                            'src/main/res/layouts/activity',
-
-                    ]
-        }
-    }
 
 }
 

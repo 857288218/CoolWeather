@@ -247,7 +247,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(findViewById(R.id.choose_area_fragment))) {
+        if (drawerLayout.isDrawerOpen(findViewById(R.id.ll_fragment))) {
             drawerLayout.closeDrawers();
         } else {
             super.onBackPressed();
