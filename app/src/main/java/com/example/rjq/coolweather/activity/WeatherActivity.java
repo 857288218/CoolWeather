@@ -106,15 +106,19 @@ public class WeatherActivity extends AppCompatActivity {
             loadBingPic();
         }
 
-        if (weatherString != null) {
-            Weather weather = Utility.handleWeatherResponse(weatherString);
-            mWeatherId = weather.basic.weatherId;
-            showWeatherInfo(weather);
-        } else {
-            mWeatherId = getIntent().getStringExtra("weather_id");
-            weatherLayout.setVisibility(View.INVISIBLE);
-            requestWeather(mWeatherId);
-        }
+//        if (weatherString != null) {
+//            Weather weather = Utility.handleWeatherResponse(weatherString);
+//            mWeatherId = weather.basic.weatherId;
+//            showWeatherInfo(weather);
+//        } else {
+//            mWeatherId = getIntent().getStringExtra("weather_id");
+//            weatherLayout.setVisibility(View.INVISIBLE);
+//            requestWeather(mWeatherId);
+//        }
+        //写死天津津南的天气
+        mWeatherId = "CN101031000";
+        weatherLayout.setVisibility(View.INVISIBLE);
+        requestWeather(mWeatherId);
         //刚进入页面时刷新天气
         //requestWeather(mWeatherId);
     }
@@ -133,12 +137,12 @@ public class WeatherActivity extends AppCompatActivity {
                 requestWeather(mWeatherId);
             }
         });
-        navBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+//        navBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                drawerLayout.openDrawer(GravityCompat.START);
+//            }
+//        });
     }
 
     public void requestWeather(final String weatherId) {

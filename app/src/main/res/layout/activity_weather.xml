@@ -67,12 +67,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <fragment
-                android:layout_gravity="start"
-                android:name="com.example.rjq.coolweather.fragment.ChooseAreaFragment"
-                android:id="@+id/choose_area_fragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            <!--<fragment-->
+                <!--android:layout_gravity="start"-->
+                <!--android:name="com.example.rjq.coolweather.fragment.ChooseAreaFragment"-->
+                <!--android:id="@+id/choose_area_fragment"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"/>-->
 
         </LinearLayout>
     </android.support.v4.widget.DrawerLayout>
