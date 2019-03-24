@@ -18,6 +18,12 @@ public class Suggestion {
     public class Comfort{
         @SerializedName("txt")
         public String info;
+
+        @SerializedName("type")
+        public String type;
+
+        @SerializedName("brf")
+        public String brf;
     }
 
     public class CarWash{

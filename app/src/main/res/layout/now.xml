@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_margin="@dimen/space_30px"
     android:layout_height="wrap_content">
 
@@ -13,13 +16,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:textSize="@dimen/space_40px"
-        android:textColor="@color/colorWhite"
-        android:text="天气状况"
-        android:layout_gravity="end"
-        android:id="@+id/weather_info_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:text="天气状况"
+            android:layout_gravity="end"
+            android:id="@+id/weather_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/tv_wind"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            tools:text="东南风2级"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </com.zhy.autolayout.AutoLinearLayout>

@@ -1,7 +1,5 @@
 package com.example.rjq.coolweather.gson;
 
-import android.text.style.ForegroundColorSpan;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

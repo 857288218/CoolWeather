@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="7.5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.example.rjq.coolweather.view.RoundAngleImageView
+        android:id="@+id/iv_cloth"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7.5dp"
+        app:roundWidth="9dp"
+        app:roundHeight="9dp"
+        android:src="@mipmap/coolweather"
+        android:layout_width="120dp"
+        android:scaleType="centerCrop"
+        android:layout_height="120dp" />
+
+    <TextView
+        android:includeFontPadding="false"
+        android:layout_marginLeft="12dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="30dp"
+        android:id="@+id/tv_name"
+        app:layout_constraintLeft_toRightOf="@+id/iv_cloth"
+        app:layout_constraintTop_toTopOf="@+id/iv_cloth"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        tools:text="男士牛津纺纯棉青年纯色韩版牛仔衬衣色韩版牛仔衬衣色韩版牛仔衬衣"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:includeFontPadding="false"
+        android:id="@+id/tv_price"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        android:layout_marginTop="15dp"
+        tools:text="￥123.9"
+        android:textSize="18sp"
+        android:textColor="#ff3300"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_shop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_price"
+        android:layout_marginBottom="10dp"
+        android:text="淘宝官方旗舰店"
+        android:textSize="14sp"
+        android:includeFontPadding="false"
+        android:textColor="#999999"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:text="打开淘宝"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textSize="15sp"
+        android:background="@drawable/shape_open_tb_bg"
+        android:id="@+id/tv_open"
+        app:layout_constraintRight_toRightOf="@+id/tv_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_price"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_shop"
+        android:layout_width="80dp"
+        android:layout_height="30dp" />
+
+</android.support.constraint.ConstraintLayout>

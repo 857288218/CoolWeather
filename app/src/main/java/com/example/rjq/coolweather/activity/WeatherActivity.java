@@ -70,6 +70,8 @@ public class WeatherActivity extends AppCompatActivity {
     Button navBtn;
     @BindView(R.id.ll_fragment)
     LinearLayout llFragment;
+    @BindView(R.id.tv_wind)
+    TextView tvWind;
 
     public SwipeRefreshLayout swipeRefreshLayout;
     public DrawerLayout drawerLayout;
@@ -116,7 +118,7 @@ public class WeatherActivity extends AppCompatActivity {
             requestWeather(mWeatherId);
         }
         //刚进入页面时刷新天气
-        //requestWeather(mWeatherId);
+        requestWeather(mWeatherId);
     }
 
     private void initView() {
@@ -189,8 +191,9 @@ public class WeatherActivity extends AppCompatActivity {
             titleUpdateTime.setText(weather.basic.update.updateTime.split(" ")[1]);
             degreeText.setText(weather.now.temperature + "°C");
             weatherInfoText.setText(weather.now.more.info);
+            tvWind.setText(getString(R.string.wind_status, weather.now.windDir, weather.now.windSc));
             forecastLayout.removeAllViews();
-            for (Forecast forecast : weather.forecastList) {
+            for (final Forecast forecast : weather.forecastList) {
                 View view = LayoutInflater.from(this).inflate(R.layout.forecast_item, forecastLayout, false);
                 TextView dateText = (TextView) view.findViewById(R.id.date_text);
                 TextView infoText = (TextView) view.findViewById(R.id.info_text);
@@ -201,6 +204,17 @@ public class WeatherActivity extends AppCompatActivity {
                 infoText.setText(forecast.more.info);
                 maxText.setText(forecast.temperature.max);
                 minText.setText(forecast.temperature.min);
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(WeatherActivity.this, ForecastDetailActivity.class);
+                        intent.putExtra(ForecastDetailActivity.PARAM_DATA, forecast.date);
+                        intent.putExtra(ForecastDetailActivity.PARAM_INFO, forecast.more.info);
+                        intent.putExtra(ForecastDetailActivity.PARAM_MAX, forecast.temperature.max);
+                        intent.putExtra(ForecastDetailActivity.PARAM_MIN, forecast.temperature.min);
+                        startActivity(intent);
+                    }
+                });
                 forecastLayout.addView(view);
             }
             if (weather.aqi != null) {
