@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.rjq.coolweather.R;
 import com.example.rjq.coolweather.gson.ClothBean;
 import com.example.rjq.coolweather.util.FormatterUtil;
+import com.example.rjq.coolweather.util.GlideUtil;
 import com.example.rjq.coolweather.util.ThemeUtil;
 import com.example.rjq.coolweather.view.RoundAngleImageView;
 
@@ -147,7 +148,7 @@ public class ForecastDetailActivity extends AppCompatActivity {
             ClothBean clothBean = clothBeans.get(position);
             holder.tvName.setText(clothBean.clothName);
             holder.tvPrice.setText(clothBean.clothPrice);
-            holder.imageView.setImageDrawable(getResources().getDrawable(clothBean.clothUrl));
+            GlideUtil.load(ForecastDetailActivity.this, clothBean.clothUrl, holder.imageView, GlideUtil.REQUEST_OPTIONS);
         }
 
         @Override
