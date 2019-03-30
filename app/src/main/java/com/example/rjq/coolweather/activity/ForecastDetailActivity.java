@@ -1,5 +1,6 @@
 package com.example.rjq.coolweather.activity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ public class ForecastDetailActivity extends AppCompatActivity {
 
     private String data, info, max, min;
     private int minTem, maxTem;
+    private List<ClothBean> clothBeans = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,9 +131,6 @@ public class ForecastDetailActivity extends AppCompatActivity {
         recyclerView.setAdapter(new Adapter());
     }
 
-    private List<ClothBean> clothBeans = new ArrayList<>();
-    private List<String> clothNames = new ArrayList<>();
-
     class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         public Adapter() {
@@ -147,7 +146,7 @@ public class ForecastDetailActivity extends AppCompatActivity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             ClothBean clothBean = clothBeans.get(position);
             holder.tvName.setText(clothBean.clothName);
-            holder.tvPrice.setText(clothBean.clothPrice);
+            holder.tvPrice.setText("￥" + clothBean.clothPrice);
             GlideUtil.load(ForecastDetailActivity.this, clothBean.clothUrl, holder.imageView, GlideUtil.REQUEST_OPTIONS);
         }
 
@@ -158,6 +157,16 @@ public class ForecastDetailActivity extends AppCompatActivity {
             viewHolder.tvOpen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    try {
+                        Intent intent= new Intent();
+                        intent.setAction("android.intent.action.VIEW");
+                        Uri content_url = Uri.parse("http://www.taobao.com");
+                        intent.setData(content_url);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    } catch (Exception e) {
+
+                    }
 
                 }
             });
