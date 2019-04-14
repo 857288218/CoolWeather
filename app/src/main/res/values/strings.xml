@@ -3,4 +3,7 @@
     <string name="wind_status">%1$s%2$s级</string>
     <string name="tem_duration">%1$s° ~ %2$s°</string>
     <string name="clothing">适合衣物：%s</string>
+    <string name="aqi">空气质量指数</string>
+    <string name="air_quality">空气质量</string>
+    <string name="pm">PM2.5: %s</string>
 </resources>

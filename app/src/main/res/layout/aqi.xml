@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_margin="@dimen/space_30px"
     android:background="#8000"
+    android:id="@+id/ll_aqi"
     android:layout_height="wrap_content">
 
     <TextView

@@ -72,9 +72,12 @@ public class WeatherActivity extends AppCompatActivity {
     LinearLayout llFragment;
     @BindView(R.id.tv_wind)
     TextView tvWind;
+    @BindView(R.id.ll_aqi)
+    LinearLayout llAqi;
 
     public SwipeRefreshLayout swipeRefreshLayout;
     public DrawerLayout drawerLayout;
+    private Weather weather;
 
     private String mWeatherId;
 
@@ -109,7 +112,7 @@ public class WeatherActivity extends AppCompatActivity {
         }
 
         if (weatherString != null) {
-            Weather weather = Utility.handleWeatherResponse(weatherString);
+            weather = Utility.handleWeatherResponse(weatherString);
             mWeatherId = weather.basic.weatherId;
             showWeatherInfo(weather);
         } else {
@@ -141,6 +144,15 @@ public class WeatherActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+        llAqi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WeatherActivity.this, AqiActivity.class);
+                intent.putExtra("aqi", weather.aqi.city.aqi);
+                intent.putExtra("pm2.5", weather.aqi.city.pm25);
+                startActivity(intent);
+            }
+        });
     }
 
     public void requestWeather(final String weatherId) {
@@ -163,7 +175,7 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String responseText = response.body().string();
-                final Weather weather = Utility.handleWeatherResponse(responseText);
+                weather = Utility.handleWeatherResponse(responseText);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

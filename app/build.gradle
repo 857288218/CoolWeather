@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 android {
+    dataBinding {
+        enabled = true
+    }
     compileSdkVersion 26
     buildToolsVersion "25.0.2"
     defaultConfig {
