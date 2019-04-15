@@ -6,4 +6,5 @@
     <string name="aqi">空气质量指数</string>
     <string name="air_quality">空气质量</string>
     <string name="pm">PM2.5: %s</string>
+    <string name="air_quality_text">%1$s · %2$s</string>
 </resources>

@@ -18,6 +18,8 @@ public class AqiActivity extends AppCompatActivity {
         ActivityAqiBinding activityAqiBinding = DataBindingUtil.setContentView(this, R.layout.activity_aqi);
         activityAqiBinding.setAqi(getIntent().getStringExtra("aqi"));
         activityAqiBinding.setPm(getIntent().getStringExtra("pm2.5"));
+        int aqi = Integer.parseInt(getIntent().getStringExtra("aqi"));
+        activityAqiBinding.setQuality(aqi < 50 ? "优" : (aqi >= 50 && aqi < 100 ? "良" : (aqi >= 100 && aqi < 150 ? "轻度" : (aqi >= 150 && aqi < 200 ? "中度" : (aqi >= 200 && aqi < 300 ? "重度" : "严重")))));
         activityAqiBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
