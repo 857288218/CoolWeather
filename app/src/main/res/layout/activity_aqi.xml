@@ -87,9 +87,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_marginRight="0.5dp"
+            <ImageView
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:id="@+id/iv_delta"
                 app:layout_constraintTop_toTopOf="parent"
+                android:src="@mipmap/icon_flash_notice_delta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@+id/iv_delta"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="0.5dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/tv_two"
                 app:layout_constraintHorizontal_weight="1"
@@ -104,7 +113,8 @@
             <TextView
                 android:layout_marginRight="0.5dp"
                 android:layout_marginLeft="0.5dp"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_delta"
+                android:layout_marginTop="5dp"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintLeft_toRightOf="@+id/tv_one"
                 app:layout_constraintRight_toLeftOf="@+id/tv_three"
@@ -119,7 +129,8 @@
             <TextView
                 android:layout_marginRight="0.5dp"
                 android:layout_marginLeft="0.5dp"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_delta"
+                android:layout_marginTop="5dp"
                 app:layout_constraintLeft_toRightOf="@+id/tv_two"
                 app:layout_constraintRight_toLeftOf="@+id/tv_four"
                 app:layout_constraintHorizontal_weight="1"
@@ -134,7 +145,8 @@
             <TextView
                 android:layout_marginRight="0.5dp"
                 android:layout_marginLeft="0.5dp"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_delta"
+                android:layout_marginTop="5dp"
                 app:layout_constraintLeft_toRightOf="@+id/tv_three"
                 app:layout_constraintRight_toLeftOf="@+id/tv_five"
                 android:id="@+id/tv_four"
@@ -149,7 +161,8 @@
             <TextView
                 android:layout_marginRight="0.5dp"
                 android:layout_marginLeft="0.5dp"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_delta"
+                android:layout_marginTop="5dp"
                 app:layout_constraintLeft_toRightOf="@+id/tv_four"
                 app:layout_constraintRight_toLeftOf="@+id/tv_six"
                 android:text="重度"
@@ -163,7 +176,8 @@
 
             <TextView
                 android:layout_marginLeft="0.5dp"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_delta"
+                android:layout_marginTop="5dp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/tv_five"
                 android:text="严重"
