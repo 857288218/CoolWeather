@@ -39,11 +39,11 @@ public class AqiActivity extends AppCompatActivity {
             @Override
             public void run() {
                 TransitionManager.beginDelayedTransition(activityAqiBinding.llOrder);
-                applyConstraintSet.setMargin(R.id.iv_delta,ConstraintSet.START,(int)(aqi/500.0 * activityAqiBinding.llOrder.getWidth()));
+                applyConstraintSet.setMargin(R.id.iv_delta,ConstraintSet.START,(int)(aqi/500.0 * activityAqiBinding.llOrder.getWidth() - (activityAqiBinding.ivDelta.getWidth() / 2)));
                 applyConstraintSet.applyTo(activityAqiBinding.llOrder);
             }
         });
 
     }
-    
+
 }
